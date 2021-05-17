@@ -218,8 +218,10 @@ export class LionCombobox extends OverlayMixin(LionListbox) {
    * @protected
    */
   get _listboxNode() {
-    return /** @type {LionOptions} */ ((this._overlayCtrl && this._overlayCtrl.contentNode) ||
-      Array.from(this.children).find(child => child.slot === 'listbox'));
+    return /** @type {LionOptions} */ (
+      (this._overlayCtrl && this._overlayCtrl.contentNode) ||
+        Array.from(this.children).find(child => child.slot === 'listbox')
+    );
   }
 
   /**
@@ -310,8 +312,8 @@ export class LionCombobox extends OverlayMixin(LionListbox) {
    * @param {'disabled'|'modelValue'|'readOnly'|'focused'} name
    * @param {unknown} oldValue
    */
-  requestUpdateInternal(name, oldValue) {
-    super.requestUpdateInternal(name, oldValue);
+  requestUpdate(name, oldValue) {
+    super.requestUpdate(name, oldValue);
     if (name === 'disabled' || name === 'readOnly') {
       this.__setComboboxDisabledAndReadOnly();
     }
@@ -514,9 +516,8 @@ export class LionCombobox extends OverlayMixin(LionListbox) {
           phase: 'overlay-close',
         })
       ) {
-        this._inputNode.value = this.formElements[
-          /** @type {number} */ (this.checkedIndex)
-        ].choiceValue;
+        this._inputNode.value =
+          this.formElements[/** @type {number} */ (this.checkedIndex)].choiceValue;
       }
     } else {
       this._syncToTextboxMultiple(this.modelValue, this._oldModelValue);

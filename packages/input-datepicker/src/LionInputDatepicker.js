@@ -1,5 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { LionCalendar } from '@lion/calendar';
-import { html, ifDefined, ScopedElementsMixin } from '@lion/core';
+import { html, ifDefined, ScopedElementsMixin, render } from '@lion/core';
 import { LionInputDate } from '@lion/input-date';
 import {
   OverlayMixin,
@@ -62,14 +63,10 @@ export class LionInputDatepicker extends ScopedElementsMixin(
       ...super.slots,
       [this._calendarInvokerSlot]: () => {
         const renderParent = document.createElement('div');
-        /** @type {typeof LionInputDatepicker} */ (this.constructor).render(
-          this._invokerTemplate(),
-          renderParent,
-          {
-            scopeName: this.localName,
-            eventContext: this,
-          },
-        );
+        render(this._invokerTemplate(), renderParent, {
+          scopeName: this.localName,
+          eventContext: this,
+        });
         return /** @type {HTMLElement} */ (renderParent.firstElementChild);
       },
     };
@@ -169,9 +166,9 @@ export class LionInputDatepicker extends ScopedElementsMixin(
    * @protected
    */
   get _calendarNode() {
-    return /** @type {LionCalendar} */ (this._overlayCtrl.contentNode.querySelector(
-      '[slot="content"]',
-    ));
+    return /** @type {LionCalendar} */ (
+      this._overlayCtrl.contentNode.querySelector('[slot="content"]')
+    );
   }
 
   constructor() {
@@ -204,8 +201,8 @@ export class LionInputDatepicker extends ScopedElementsMixin(
    * @param {PropertyKey} name
    * @param {?} oldValue
    */
-  requestUpdateInternal(name, oldValue) {
-    super.requestUpdateInternal(name, oldValue);
+  requestUpdate(name, oldValue) {
+    super.requestUpdate(name, oldValue);
 
     if (name === 'disabled' || name === 'readOnly') {
       this.__toggleInvokerDisabled();

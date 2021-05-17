@@ -1,4 +1,4 @@
-import { css, html, LitElement, nothing, render, TemplateResult } from '@lion/core';
+import { css, html, LitElement, nothing, render, isTemplateResult } from '@lion/core';
 import { icons } from './icons.js';
 
 /**
@@ -14,7 +14,7 @@ function unwrapSvg(wrappedSvgObject) {
  * @param {TemplateResult|nothing} svg
  */
 function validateSvg(svg) {
-  if (!(svg === nothing || svg instanceof TemplateResult)) {
+  if (!(svg === nothing || isTemplateResult(svg))) {
     throw new Error(
       'icon accepts only lit-html templates or functions like "tag => tag`<svg>...</svg>`"',
     );

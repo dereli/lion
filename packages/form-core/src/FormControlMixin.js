@@ -765,7 +765,6 @@ const FormControlMixinImplementation = superclass =>
       if (this._ariaLabelledNodes.includes(element)) {
         this._ariaLabelledNodes.splice(this._ariaLabelledNodes.indexOf(element), 1);
         this._ariaLabelledNodes = [...this._ariaLabelledNodes];
-
         // This value will be read when we need to reflect to attr
         /** @type {boolean} */
         this.__reorderAriaLabelledNodes = false;
