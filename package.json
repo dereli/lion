@@ -13,7 +13,7 @@
     "format": "npm run format:eslint && npm run format:prettier",
     "format:eslint": "eslint --ext .js,.html . --fix",
     "format:prettier": "prettier \"**/*.{js,md}\" \"packages/*/package.json\" \"package.json\" --write",
-    "postinstall": "npm run custom-elements-manifest",
+    "postinstall": "npm run custom-elements-manifest && patch-package",
     "lint": "run-p lint:*",
     "lint:eclint": "git ls-files | xargs eclint check",
     "lint:eslint": "eslint --ext .js,.html .",
