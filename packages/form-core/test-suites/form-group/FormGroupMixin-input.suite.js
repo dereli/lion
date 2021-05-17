@@ -66,7 +66,7 @@ export function runFormGroupMixinInputSuite(cfg = {}) {
       });
     });
 
-    it('suffixes child labels with group label, just like in <fieldset>', async () => {
+    it.only('suffixes child labels with group label, just like in <fieldset>', async () => {
       console.log('bla');
       const el = /**  @type {FormGroup} */ (
         await fixture(html`
@@ -95,8 +95,8 @@ export function runFormGroupMixinInputSuite(cfg = {}) {
       expect(getLabels(field2)).to.eql([field2._labelNode.id, _labelNode.id]);
 
       // Test the cleanup on disconnected
+      console.log('before remove');
       el.removeChild(field1);
-      console.log('blabla', field1);
 
       await field1.updateComplete;
       // await aTimeout(100);

@@ -3,7 +3,7 @@ import { repeat, LitElement } from '@lion/core';
 import { Required } from '@lion/form-core';
 import { LionOptions } from '@lion/listbox';
 import '@lion/listbox/define';
-import { expect, fixture as _fixture, defineCE } from '@open-wc/testing';
+import { expect, fixture as _fixture, defineCE, aTimeout } from '@open-wc/testing';
 import { html, unsafeStatic } from 'lit/static-html.js';
 
 import sinon from 'sinon';
@@ -50,7 +50,6 @@ export function runListboxMixinSuite(customConfig = {}) {
           <${optionTag} .choiceValue=${'20'}>Item 2</${optionTag}>
         </${tag}>
       `);
-
         expect(el.modelValue).to.equal('10');
       });
 

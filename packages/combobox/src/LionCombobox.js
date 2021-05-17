@@ -704,7 +704,7 @@ export class LionCombobox extends OverlayMixin(LionListbox) {
     });
 
     // [7]. If no autofill took place, we are left with the previously matched option; correct this
-    if (!hasAutoFilled && autoselect && !this.multipleChoice) {
+    if (autoselect && !hasAutoFilled && !this.multipleChoice) {
       // This means there is no match for checkedIndex
       this.checkedIndex = -1;
     }
@@ -772,7 +772,6 @@ export class LionCombobox extends OverlayMixin(LionListbox) {
    */
   _setupOverlayCtrl() {
     super._setupOverlayCtrl();
-    this.__initFilterListbox();
     this.__setupCombobox();
   }
 
@@ -862,13 +861,6 @@ export class LionCombobox extends OverlayMixin(LionListbox) {
     if (formControl) {
       formControl.classList.add('form-control');
     }
-  }
-
-  /**
-   * @private
-   */
-  __initFilterListbox() {
-    this._handleAutocompletion();
   }
 
   /**
