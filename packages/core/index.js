@@ -13,12 +13,8 @@ export {
   noChange,
   nothing,
   render,
-  RenderOptions,
   LitElement,
   defaultConverter,
-  CSSResultArray,
-  PropertyValues,
-  TemplateResult,
 } from 'lit';
 
 export {
@@ -32,18 +28,7 @@ export {
   queryAssignedNodes,
 } from 'lit/decorators.js';
 
-export {
-  AttributePart,
-  BooleanAttributePart,
-  ChildPart,
-  ElementPart,
-  EventPart,
-  Part,
-  PartType,
-  directive,
-  Directive,
-  DirectiveResult,
-} from 'lit/directive.js';
+export { directive, Directive } from 'lit/directive.js';
 
 export { AsyncDirective } from 'lit/async-directive.js';
 

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { LionCalendar } from '@lion/calendar';
-import { html, ScopedElementsMixin, render } from '@lion/core';
+import { html, ScopedElementsMixin, ifDefined, render } from '@lion/core';
 import { LionInputDate } from '@lion/input-date';
 import {
   OverlayMixin,
@@ -289,7 +289,7 @@ export class LionInputDatepicker extends ScopedElementsMixin(
         }"
         .minDate="${this.__calendarMinDate}"
         .maxDate="${this.__calendarMaxDate}"
-        .disableDates="${this.__calendarDisableDates}"
+        .disableDates="${ifDefined(this.__calendarDisableDates)}"
         @user-selected-date-changed="${this._onCalendarUserSelectedChanged}"
       ></lion-calendar>
     `;
