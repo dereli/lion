@@ -1432,8 +1432,8 @@ export function runListboxMixinSuite(customConfig = {}) {
             <${tag} id="withRepeat">
               ${repeat(
                 this.options,
-                (/** @type {LionOption} */ option) => option,
-                (/** @type {LionOption} */ option) =>
+                (/** @type {string} */ option) => option,
+                (/** @type {string} */ option) =>
                   html` <lion-option .choiceValue="${option}">${option}</lion-option> `,
               )}
             </${tag}>

@@ -388,6 +388,7 @@ describe('lion-select-rich', () => {
       const newOption = /** @type {LionOption} */ (document.createElement('lion-option'));
       newOption.choiceValue = 30;
       _inputNode.appendChild(newOption);
+      // @ts-ignore [test] allow to not provide args for testing purposes
       el.requestUpdate();
       await el.updateComplete;
       expect(el.singleOption).to.be.false;

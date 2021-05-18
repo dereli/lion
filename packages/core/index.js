@@ -42,6 +42,7 @@ export {
   PartType,
   directive,
   Directive,
+  DirectiveResult,
 } from 'lit/directive.js';
 
 export { AsyncDirective } from 'lit/async-directive.js';

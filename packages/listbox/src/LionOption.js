@@ -2,6 +2,7 @@ import { ChoiceInputMixin, FormRegisteringMixin } from '@lion/form-core';
 import { css, DisabledMixin, html, LitElement } from '@lion/core';
 
 /**
+ * @typedef {import('@lion/core').TemplateResult } TemplateResult
  * @typedef {import('@lion/form-core/types/choice-group/ChoiceGroupMixinTypes').ChoiceGroupHost } ChoiceGroupHost
  * @typedef {import('../types/LionOption').LionOptionHost } LionOptionHost
  */
@@ -99,6 +100,10 @@ export class LionOption extends DisabledMixin(ChoiceInputMixin(FormRegisteringMi
     }
   }
 
+  /**
+   *
+   * @returns {TemplateResult}
+   */
   render() {
     return html`
       <div class="choice-field__label">

@@ -1,4 +1,5 @@
 /**
+ * @typedef {import('lit-html').nothing} nothing
  * @typedef {import('@lion/core').TemplateResult} TemplateResult
  */
 

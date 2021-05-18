@@ -3,6 +3,10 @@ import { LionInput } from '@lion/input';
 import { IsNumber, MinNumber, MaxNumber } from '@lion/form-core';
 
 /**
+ * @typedef {import('@lion/core').RenderOptions} RenderOptions
+ */
+
+/**
  * `LionInputStepper` is a class for custom input-stepper element (`<lion-input-stepper>` web component).
  *
  * @customElement lion-input-stepper
@@ -223,10 +227,14 @@ export class LionInputStepper extends LionInput {
    */
   __getIncrementButtonNode() {
     const renderParent = document.createElement('div');
-    render(this._incrementorTemplate(), renderParent, {
-      scopeName: this.localName,
-      eventContext: this,
-    });
+    render(
+      this._incrementorTemplate(),
+      renderParent,
+      /** @type {RenderOptions} */ ({
+        scopeName: this.localName,
+        eventContext: this,
+      }),
+    );
     return renderParent.firstElementChild;
   }
 
@@ -237,10 +245,14 @@ export class LionInputStepper extends LionInput {
    */
   __getDecrementButtonNode() {
     const renderParent = document.createElement('div');
-    render(this._decrementorTemplate(), renderParent, {
-      scopeName: this.localName,
-      eventContext: this,
-    });
+    render(
+      this._decrementorTemplate(),
+      renderParent,
+      /** @type {RenderOptions} */ ({
+        scopeName: this.localName,
+        eventContext: this,
+      }),
+    );
     return renderParent.firstElementChild;
   }
 

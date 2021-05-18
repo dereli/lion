@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { LionCalendar } from '@lion/calendar';
-import { html, ifDefined, ScopedElementsMixin, render } from '@lion/core';
+import { html, ScopedElementsMixin, render } from '@lion/core';
 import { LionInputDate } from '@lion/input-date';
 import {
   OverlayMixin,
@@ -9,6 +9,10 @@ import {
   ArrowMixin,
 } from '@lion/overlays';
 import { LionCalendarOverlayFrame } from './LionCalendarOverlayFrame.js';
+
+/**
+ * @typedef {import('@lion/core').RenderOptions} RenderOptions
+ */
 
 /**
  * @customElement lion-input-datepicker
@@ -63,10 +67,14 @@ export class LionInputDatepicker extends ScopedElementsMixin(
       ...super.slots,
       [this._calendarInvokerSlot]: () => {
         const renderParent = document.createElement('div');
-        render(this._invokerTemplate(), renderParent, {
-          scopeName: this.localName,
-          eventContext: this,
-        });
+        render(
+          this._invokerTemplate(),
+          renderParent,
+          /** @type {RenderOptions} */ ({
+            scopeName: this.localName,
+            eventContext: this,
+          }),
+        );
         return /** @type {HTMLElement} */ (renderParent.firstElementChild);
       },
     };
@@ -281,7 +289,7 @@ export class LionInputDatepicker extends ScopedElementsMixin(
         }"
         .minDate="${this.__calendarMinDate}"
         .maxDate="${this.__calendarMaxDate}"
-        .disableDates="${ifDefined(this.__calendarDisableDates)}"
+        .disableDates="${this.__calendarDisableDates}"
         @user-selected-date-changed="${this._onCalendarUserSelectedChanged}"
       ></lion-calendar>
     `;
