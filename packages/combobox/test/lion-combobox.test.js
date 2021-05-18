@@ -3,13 +3,10 @@ import { expect, fixture, defineCE } from '@open-wc/testing';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import sinon from 'sinon';
 import '@lion/combobox/define';
-import { LionOptions } from '@lion/listbox';
 import { browserDetection, LitElement } from '@lion/core';
 import { getListboxMembers } from '@lion/listbox/test-helpers';
 import { Required } from '@lion/form-core';
 import { LionCombobox } from '../src/LionCombobox.js';
-
-console.log('COMBOBOXErrr');
 
 /**
  * @typedef {import('../types/SelectionDisplay').SelectionDisplay} SelectionDisplay
@@ -161,9 +158,7 @@ async function fruitFixture({ autocomplete, matchMode } = {}) {
   return [el, el.formElements];
 }
 
-describe.only('lion-combobox', () => {
-  console.log('LC TEST');
-
+describe('lion-combobox', () => {
   describe('Options visibility', () => {
     it('hides options when text in input node is cleared after typing something by default', async () => {
       const el = /** @type {LionCombobox} */ (
