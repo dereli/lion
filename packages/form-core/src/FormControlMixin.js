@@ -276,7 +276,6 @@ const FormControlMixinImplementation = superclass =>
       super.updated(changedProperties);
 
       if (changedProperties.has('_ariaLabelledNodes')) {
-        console.log('Ray Flexiee');
         this.__reflectAriaAttr(
           'aria-labelledby',
           this._ariaLabelledNodes,
