@@ -13,8 +13,12 @@ export {
   noChange,
   nothing,
   render,
+  RenderOptions,
   LitElement,
   defaultConverter,
+  CSSResultArray,
+  PropertyValues,
+  TemplateResult,
 } from 'lit';
 
 export {
