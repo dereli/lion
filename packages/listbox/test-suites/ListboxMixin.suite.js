@@ -1262,16 +1262,12 @@ export function runListboxMixinSuite(customConfig = {}) {
           `);
 
           expect(el.hasFeedbackFor).to.include('error');
-          // @ts-expect-error no types for 'have.a.property'
           expect(el.validationStates).to.have.a.property('error');
-          // @ts-expect-error no types for 'have.a.property'
           expect(el.validationStates.error).to.have.a.property('Required');
 
           el.modelValue = 20;
           expect(el.hasFeedbackFor).not.to.include('error');
-          // @ts-expect-error no types for 'have.a.property'
           expect(el.validationStates).to.have.a.property('error');
-          // @ts-expect-error no types for 'have.a.property'
           expect(el.validationStates.error).not.to.have.a.property('Required');
         });
       });
@@ -1436,8 +1432,9 @@ export function runListboxMixinSuite(customConfig = {}) {
             <${tag} id="withRepeat">
               ${repeat(
                 this.options,
-                option => option,
-                option => html` <lion-option .choiceValue="${option}">${option}</lion-option> `,
+                (/** @type {LionOption} */ option) => option,
+                (/** @type {LionOption} */ option) =>
+                  html` <lion-option .choiceValue="${option}">${option}</lion-option> `,
               )}
             </${tag}>
           `;

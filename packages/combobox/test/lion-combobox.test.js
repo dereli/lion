@@ -1005,7 +1005,7 @@ describe('lion-combobox', () => {
       );
       // @ts-ignore sinon type error
       const spy = sinon.spy(el._selectionDisplayNode, 'onComboboxElementUpdated');
-      el.requestUpdate('modelValue');
+      el.requestUpdate('modelValue', undefined);
       await el.updateComplete;
       expect(spy).to.have.been.calledOnce;
     });

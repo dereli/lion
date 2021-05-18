@@ -417,9 +417,8 @@ describe('<lion-field>', () => {
       names.forEach(slotName => {
         const slotLight = /** @type {HTMLElement} */ (el.querySelector(`[slot="${slotName}"]`));
         slotLight.setAttribute('test-me', 'ok');
-        // @ts-expect-error
         const slot = /** @type {ShadowHTMLElement} */ (
-          el.shadowRoot.querySelector(`slot[name="${slotName}"]`)
+          /** @type {ShadowRoot} */ (el.shadowRoot).querySelector(`slot[name="${slotName}"]`)
         );
         const assignedNodes = slot.assignedNodes();
         expect(assignedNodes.length).to.equal(1);

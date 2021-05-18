@@ -377,8 +377,9 @@ describe('lion-select-rich', () => {
       expect(el.singleOption).to.be.false;
       expect(_invokerNode.singleOption).to.be.false;
 
-      const optionELm = el.formElements[0];
-      optionELm.parentNode.removeChild(optionELm);
+      const optionElm = el.formElements[0];
+      optionElm.parentNode.removeChild(optionElm);
+      // @ts-ignore [test] we don't need args in this case
       el.requestUpdate();
       await el.updateComplete;
       expect(el.singleOption).to.be.true;
