@@ -772,6 +772,7 @@ export class LionCombobox extends OverlayMixin(LionListbox) {
    */
   _setupOverlayCtrl() {
     super._setupOverlayCtrl();
+    this.__shouldAutocompleteNextUpdate = true;
     this.__setupCombobox();
   }
 

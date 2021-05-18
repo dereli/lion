@@ -15,8 +15,6 @@ import { FormGroupMixin } from '../../src/form-group/FormGroupMixin.js';
  * @param {{ tagString?: string, childTagString?:string }} [cfg]
  */
 export function runFormGroupMixinInputSuite(cfg = {}) {
-  console.log('runFormGroupMixinInputSuite');
-
   const FormChild = class extends LionInput {
     get slots() {
       return {
