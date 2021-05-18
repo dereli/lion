@@ -7,7 +7,6 @@ import { FormRegisteringMixin } from './registration/FormRegisteringMixin.js';
  * @typedef {import('@lion/core').TemplateResult} TemplateResult
  * @typedef {import('@lion/core').CSSResult} CSSResult
  * @typedef {import('@lion/core').CSSResultArray} CSSResultArray
- * @typedef {import('@lion/core').nothing} nothing
  * @typedef {import('@lion/core/types/SlotMixinTypes').SlotsMap} SlotsMap
  * @typedef {import('./validate/LionValidationFeedback').LionValidationFeedback} LionValidationFeedback
  * @typedef {import('../types/choice-group/ChoiceInputMixinTypes').ChoiceInputHost} ChoiceInputHost
