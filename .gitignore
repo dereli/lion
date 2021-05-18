@@ -22,7 +22,6 @@ yarn-error.log
 **/custom-elements.json
 
 ## types
-*.d.ts
 !packages/**/*/types/**/*
 !packages/**/index.d.ts
 !packages-node/**/*/types/**/*
