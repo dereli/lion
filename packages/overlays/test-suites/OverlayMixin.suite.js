@@ -420,8 +420,8 @@ export function runOverlayMixinSuite({ tagString, tag, suffix = '' }) {
         );
         expect(lastContentNodeInContainer.firstElementChild.slot).to.equal('content');
       } else {
-        // @ts-ignore allow protected props in tests
         const contentNode = /** @type {HTMLElement} */ (
+          // @ts-ignore [allow-protected] in tests
           el._overlayContentNode.querySelector('#nestedContent')
         );
         expect(contentNode).to.not.be.null;
