@@ -95,13 +95,10 @@ export function runFormGroupMixinInputSuite(cfg = {}) {
       expect(getLabels(field2)).to.eql([field2._labelNode.id, _labelNode.id]);
 
       // Test the cleanup on disconnected
-      console.log('before remove');
       el.removeChild(field1);
 
       await field1.updateComplete;
-      // await aTimeout(100);
       expect(getLabels(field1)).to.eql([field1._labelNode.id]);
-      console.log('blablabla');
     });
   });
 

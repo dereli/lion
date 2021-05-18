@@ -764,10 +764,8 @@ const FormControlMixinImplementation = superclass =>
      */
     removeFromAriaLabelledBy(element) {
       if (this._ariaLabelledNodes.includes(element)) {
-        console.log('this._ariaLabelledNodes voor', this._ariaLabelledNodes);
         this._ariaLabelledNodes.splice(this._ariaLabelledNodes.indexOf(element), 1);
         this._ariaLabelledNodes = [...this._ariaLabelledNodes];
-        console.log('this._ariaLabelledNodes na', this._ariaLabelledNodes);
         // This value will be read when we need to reflect to attr
         /** @type {boolean} */
         this.__reorderAriaLabelledNodes = false;
